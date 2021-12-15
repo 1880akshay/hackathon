@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
+
+$primary-color: #f4623a;
+$primary-hover-color: #cf5331;
+$black: rgb(19, 19, 19);
+$black-light: rgb(51, 51, 51);
+$white: rgb(233, 233, 233);
+
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+.font-weight-400 {font-weight: 400 !important;}
+.font-weight-500 {font-weight: 500 !important;}
+.font-weight-600 {font-weight: 600 !important;}
+.font-weight-700 {font-weight: 700 !important;}
+.font-weight-800 {font-weight: 800 !important;}
+.font-weight-900 {font-weight: 900 !important;}
+.generic-link {
+  color: $primary-color;
+  text-decoration: none;
+  transition: 0.2s ease all;
+}
+.generic-link:hover {
+  color: $primary-hover-color;
+  text-decoration: none;
+}
+.text-primary-color {
+  color: $primary-color;
+}
+.Toastify__close-button {outline: none !important;}
+
+header.masthead {
+  height: 100vh;
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../images/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+header.masthead h1 {
+  font-size: 2.25rem;
+}
+@media (min-width: 992px) {
+  header.masthead {
+    height: 100vh;
+    min-height: 40rem;
+  }
+  header.masthead p {
+    font-size: 1.15rem;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  header.masthead h1 {
+    font-size: 3.5rem;
+  }
+}
+
+nav.navbar {
+  padding: 0.8rem 1rem;
+  transition: 0.5s ease all;
+}
+nav .nav-link {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+  transition: 0.2s ease all;
+}
+
+nav button.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+nav.solid-nav {
+  background-color: white;
+  -webkit-box-shadow: 0px 1px 10px rgb(77, 77, 77);
+  -moz-box-shadow: 0px 1px 10px rgb(77, 77, 77);
+  box-shadow: 0px 1px 10px rgb(77, 77, 77);
+  padding: 0.6rem 1rem !important;
+}
+
+nav.transparent-nav {
+  background-color: rgba(0,0,0,.3);
+}
+
+.navbar-nav .active.nav-link {
+  color: $primary-color !important;
+}
+nav .dropdown-menu .dropdown-item {
+  transition: 0.2s ease all;
+  outline: none;
+}
+nav .dropdown-menu .dropdown-item.active, nav .dropdown-menu .dropdown-item:active {
+  color: $primary-color;
+  background-color: #fff;
+}
+
+nav.solid-nav .nav-link, nav.solid-nav .navbar-brand, nav.solid-nav button.navbar-toggler {
+  color: $black !important;
+}
+nav.transparent-nav .nav-link, nav.transparent-nav .navbar-brand, nav.transparent-nav button.navbar-toggler {
+  color: $white !important;
+}
+nav .nav-link:hover, nav .dropdown-menu .dropdown-item:hover {
+  color: $primary-color !important;
+}
+
+nav .login-btn {
+  background-color: $primary-color;
+  transition: 0.2s ease all;
+  border-radius: 100px;
+  padding: 0.5rem 1.5rem;
+  color: $white;
+  outline: none;
+  border: 2px solid $primary-hover-color;
+  font-size: smaller;
+}
+
+nav .login-btn:hover {
+  background-color: $primary-hover-color;
+}
+
+@media (max-width: 768px) {
+  nav .login-btn {
+    margin: 0.3rem 0;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.section-heading {
+  width: fit-content;
+}
+.section-heading h3 {
+  color: $black;
+  font-size: 1.5rem;
+}
+.section-heading span {
+  height: 3px;
+  width: 40px;
+  color: $primary-color;
+  background-color: $primary-color;
+  display: block;
+}
+
+.error-404-text {
+  font-size: 10rem;
+  color: $primary-color;
+  font-weight: 900;
+}
+
+.error-icon {
+  color: $primary-color;
+  margin-right: 10px;
+}
+.error-text {
+  font-size: 1.5rem;
+  display: inline;
+  color: $black;
+}
+@media (max-width: 768px) {
+  .error-404-text {
+    font-size: 8rem;
+  }
+  .error-description {
+    text-align: center;
+  }
+}
+
+.login-wrapper {
+  background-color: $white;
+  padding: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.2s ease all;
+}
+.login-wrapper .login-input-field {
+  width: 100%;
+  padding: 0.5rem 2rem;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid $black-light;
+  color: $black;
+  transition: 0.2s ease all;
+}
+.login-wrapper .login-input-field:hover, .login-wrapper .login-input-field:focus {
+  border: 1px solid $black;
+  box-shadow: 0 0 2px $black-light;
+}
+.login-wrapper .login-submit-btn {
+  width: 100%;
+  padding: 0.5rem;
+  outline: none;
+  background: $primary-color;
+  color: $white;
+  border: 2px solid $primary-hover-color;
+  transition: 0.2s ease all;
+}
+.login-wrapper .login-submit-btn:disabled, .login-wrapper .login-submit-btn:disabled:hover {
+  opacity: 0.6;
+  background: $primary-color;
+  cursor: not-allowed;
+}
+.login-wrapper .login-submit-btn:hover {
+  background: $primary-hover-color;
+}
+.login-wrapper .login-prefix-icon {
+  position: absolute;
+  left: 0.55rem;
+  top: 0.75rem;
+  color: $black-light;
+}
+.login-wrapper .login-suffix-icon {
+  position: absolute;
+  right: 0.55rem;
+  top: 0.75rem;
+  color: $black-light;
+}
+
+.login-wrapper .otp-helper-text {
+  color: $black-light;
+  font-size: small;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.login-wrapper .otp-input-container {
+  justify-content: center;
+}
+.login-wrapper .otp-input-box {
+	margin: 0 2px;
+	width: 2.5em !important;
+	padding: 7px 10px;
+  border: 1px solid $black-light;
+  border-radius: 5px;
+  color: $black;
+  transition: 0.2s ease all;
+  outline: none;
+}
+.login-wrapper .otp-input-box:focus, .otp-input-box:hover {
+	border: 1px solid $black;
+  box-shadow: 0 0 2px $black-light;
+}
