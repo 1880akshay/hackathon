@@ -4,7 +4,7 @@ const StudentProfile = ({ logout }) => {
 
     return (
         <>
-            <div>Protected Data</div>
+            <div>Private Data</div>
             <br />
             <button onClick={logout}>Logout</button>
         </>
