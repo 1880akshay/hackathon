@@ -243,6 +243,7 @@ nav .login-btn:hover {
   box-shadow: 0 0 2px $black-light;
 }
 
+<<<<<<< Updated upstream
 .login-wrapper #password-toggler {
   cursor: pointer;
 }
@@ -263,3 +264,33 @@ select.login-input-field::-ms-expand {
     text-indent: -3px;
   }
 }
+=======
+.item {
+  height: 25vh;
+  // border:rgb(19, 19, 19);
+  // padding: 1px;
+  // margin: auto;
+  background: url("../images/bg2.jpg");
+  background-size: cover;
+}
+
+.col-md {
+  padding: 15px;
+  text-align: center;
+}
+
+#footer {
+  background-color: rgb(51, 51, 51);
+  height: 250px;
+  bottom: 0;
+  color: #fff;
+  text-align: center;
+  // margin: 0;
+  // padding: 0;
+}
+
+.numbers {
+  font-size: xx-large;
+  color: $primary-color;
+}
+>>>>>>> Stashed changes
