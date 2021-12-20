@@ -5,8 +5,8 @@ import $ from 'jquery';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import Carousel from '@brainhubeu/react-carousel';
-import '@brainhubeu/react-carousel/lib/style.css';
+// import Carousel from '@brainhubeu/react-carousel';
+// import '@brainhubeu/react-carousel/lib/style.css';
 
 class HomePage extends Component {
 
@@ -55,21 +55,19 @@ class HomePage extends Component {
                     <div className="row">
                         <div className="col-md-8">
                             <SectionHeading heading="News Bulletin" />
-                            <div className="row">
-                                <OwlCarousel className='owl-theme' loop={true} margin={10} autoPlay={true} autoplayTimeout={1000} nav>
-                                    <div className='item'><h4>News 1</h4></div>
-                                    <div className='item'><h4>News 2</h4></div>
-                                    <div className='item'><h4>News 3</h4></div>
-                                    <div className='item'><h4>News 4</h4></div>
-                                    <div className='item'><h4>News 5</h4></div>
-                                    <div className='item'><h4>News 6</h4></div>
-                                </OwlCarousel>
-                            </div>
+                            <OwlCarousel className='owl-theme' loop={true} margin={10} autoPlay={true} autoplayTimeout={1000} nav>
+                                <div className='item'><h4>News 1</h4></div>
+                                <div className='item'><h4>News 2</h4></div>
+                                <div className='item'><h4>News 3</h4></div>
+                                <div className='item'><h4>News 4</h4></div>
+                                <div className='item'><h4>News 5</h4></div>
+                                <div className='item'><h4>News 6</h4></div>
+                            </OwlCarousel>
                         </div>
                         <div className="col-md-4">
                             <SectionHeading heading="Recent Events" />
                             <marquee direction="up">
-                                <div className="vertical-carousel-wrapper px-2">
+                                <div className="vertical-carousel-wrapper">
                                     <div className='event-card mb-2' style={{width: '100%', height: '100px', backgroundColor: 'grey'}}>
 
                                     </div>
