@@ -1,8 +1,7 @@
 const crypto = require('crypto');
-const config = require("../config/auth.config");
 
 const algorithm = 'aes-256-ctr';
-const secretKey = config.otpSecret;
+const secretKey = process.env.OTP_SECRET;
 const iv = crypto.randomBytes(16);
 
 const encrypt = (text) => {
@@ -21,9 +20,9 @@ const decrypt = (hash) => {
 
     const decipher = crypto.createDecipheriv(algorithm, secretKey, Buffer.from(hash.iv, 'hex'));
 
-    const decrpyted = Buffer.concat([decipher.update(Buffer.from(hash.content, 'hex')), decipher.final()]);
+    const decrypted = Buffer.concat([decipher.update(Buffer.from(hash.content, 'hex')), decipher.final()]);
 
-    return decrpyted.toString();
+    return decrypted.toString();
 };
 
 module.exports = {

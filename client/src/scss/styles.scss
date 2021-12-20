@@ -242,3 +242,24 @@ nav .login-btn:hover {
 	border: 1px solid $black;
   box-shadow: 0 0 2px $black-light;
 }
+
+.login-wrapper #password-toggler {
+  cursor: pointer;
+}
+
+select.login-input-field {
+  background-color: #fff;
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+/* For IE10 */
+select.login-input-field::-ms-expand {
+  display: none;
+}
+@-moz-document url-prefix() {
+  select.login-input-field {
+    text-indent: -3px;
+  }
+}

@@ -4,13 +4,11 @@ const StudentProfile = ({ logout }) => {
 
     return (
         <>
-            <div>Private Data</div>
+            <div>Protected Data</div>
             <br />
             <button onClick={logout}>Logout</button>
         </>
     );
 }
-
-// hello world
 
 export default StudentProfile;

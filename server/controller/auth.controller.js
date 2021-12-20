@@ -1,7 +1,6 @@
-const config = require("../config/auth.config");
 var jwt = require("jsonwebtoken");
 const { encrypt } = require('../utils/encryption.utils');
-const { mailer } = require('../config/mailer.config'); 
+const { mailer } = require('../config/mailer.config');
 
 exports.sendOTP = (req, res) => {
     const email = req.body.email;
@@ -46,7 +45,7 @@ exports.sendOTP = (req, res) => {
 
 exports.login = (req, res) => {
     const expiryTime = 86400; // 24 hours in seconds
-    const token = jwt.sign({ email: req.body.email, role: req.body.role }, config.jwtSecret, {
+    const token = jwt.sign({ email: req.body.email, role: req.body.role }, process.env.JWT_SECRET, {
         expiresIn: expiryTime
     });
 
@@ -56,16 +55,21 @@ exports.login = (req, res) => {
         {
             httpOnly: true,
             sameSite: 'strict',
-            signed: true,
-            maxAge: expiryTime*1000
+            signed: true
         }
     ).send({
         message: 'Login successfull!'
     });
 };
 
-exports.checkLoginStatus = (req, res) => {
-    res.status(200).send();
+exports.checkStudentLoginStatus = (req, res) => {
+    if(req.user.role !== 'student') res.status(401).send('Invalid token');
+    else res.status(200).send();
+}
+
+exports.checkOfficialLoginStatus = (req, res) => {
+    if(req.user.role === 'student') res.status(401).send('Invalid token');
+    else res.status(200).send();
 }
 
 exports.logout = (req, res) => {

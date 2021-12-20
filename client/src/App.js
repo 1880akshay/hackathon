@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import StudentProfile from './views/studentProfile';
+import OfficialLogin from './views/officialLogin';
 
 class App extends Component {
 
@@ -14,8 +15,9 @@ class App extends Component {
       <>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/student-login" element={<LoginRoute redirectTo="/student-profile"><StudentLogin /></LoginRoute>} />
-          <Route exact path="/student-profile" element={<ProtectedRoute redirectTo="/student-login"><StudentProfile /></ProtectedRoute>} />
+          <Route exact path="/student-login" element={<LoginRoute redirectTo="/student-profile" role="student"><StudentLogin /></LoginRoute>} />
+          <Route exact path="/student-profile" element={<ProtectedRoute redirectTo="/student-login" role="student"><StudentProfile /></ProtectedRoute>} />
+          <Route exact path="/official-login" element={<LoginRoute redirectTo="/official-profile" role="official"><OfficialLogin /></LoginRoute>} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <ToastContainer 
@@ -30,9 +32,16 @@ class App extends Component {
   }
 }
 
-const checkLoginStatus = async (loggedInCallback) => {
+const checkLoginStatus = async (loggedInCallback, role) => {
   try {
-    const response = await fetch('/api/auth/checkLoginStatus');
+    // const response = (role === 'student') ? await fetch('/api/auth/checkLoginStatus') : await fetch('/api/auth/checkOfficialLoginStatus');
+    let response;
+    if(role === 'student') {
+      response = await fetch('/api/auth/checkStudentLoginStatus');
+    }
+    else {
+      response = await fetch('/api/auth/checkOfficialLoginStatus');
+    }
     // console.log(response.status);
     if(response.status === 200) {
       loggedInCallback();
@@ -61,7 +70,7 @@ class ProtectedRoute extends Component {
   }
 
   async componentDidMount() {
-    await checkLoginStatus(() => {this.setState({loggedIn: true});});
+    await checkLoginStatus(() => {this.setState({loggedIn: true});}, this.props.role);
     this.setState({loading: false});
   }
 
@@ -91,8 +100,16 @@ class LoginRoute extends Component {
   }
 
   async componentDidMount() {
-    await checkLoginStatus(() => {this.setState({loggedIn: true});});
+    await checkLoginStatus(() => {this.setState({loggedIn: true});}, this.props.role);
     this.setState({loading: false});
+  }
+
+  async componentDidUpdate(prevProps) {
+    if(prevProps !== this.props) {
+      this.setState({loading: true, loggedIn: false});
+      await checkLoginStatus(() => {this.setState({loggedIn: true});}, this.props.role);
+      this.setState({loading: false});
+    }
   }
 
   render() {

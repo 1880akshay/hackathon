@@ -12,8 +12,10 @@ app.post('/officialLogin',
     controller.login
 );
 
-app.get('/checkLoginStatus', controller.checkLoginStatus);
+app.get('/checkStudentLoginStatus', controller.checkStudentLoginStatus);
 
-app.get('/logout', controller.logout)
+app.get('/checkOfficialLoginStatus', controller.checkOfficialLoginStatus);
+
+app.get('/logout', controller.logout);
 
 module.exports = app;
