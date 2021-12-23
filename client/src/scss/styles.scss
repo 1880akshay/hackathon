@@ -278,16 +278,34 @@ select.login-input-field::-ms-expand {
 }
 
 #footer {
-  background-color: rgb(51, 51, 51);
+  background-color: rgb(66, 66, 66);
   height: 250px;
   bottom: 0;
-  color: #fff;
-  text-align: center;
-  // margin: 0;
-  // padding: 0;
+  color: rgb(196, 196, 196);
+  padding-left: 25px;
+  padding-top: 15px;
+  font-size: x-large;
 }
 
 .numbers {
   font-size: xx-large;
   color: $primary-color;
 }
+
+.date-holder {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  width: 20%;
+  height: 70px; 
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+// .vertical-carousel {
+//   transform: rotate(90deg);
+// }
+// .vertical-carousel .item {
+//   transform: rotate(-90deg);
+// }

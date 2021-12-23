@@ -5,8 +5,12 @@ import $ from 'jquery';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+<<<<<<< Updated upstream
 // import Carousel from '@brainhubeu/react-carousel';
 // import '@brainhubeu/react-carousel/lib/style.css';
+=======
+import CountUp from 'react-countup';
+>>>>>>> Stashed changes
 
 class HomePage extends Component {
 
@@ -55,6 +59,7 @@ class HomePage extends Component {
                     <div className="row">
                         <div className="col-md-8">
                             <SectionHeading heading="News Bulletin" />
+<<<<<<< Updated upstream
                             <OwlCarousel className='owl-theme' loop={true} margin={10} autoPlay={true} autoplayTimeout={1000} nav>
                                 <div className='item'><h4>News 1</h4></div>
                                 <div className='item'><h4>News 2</h4></div>
@@ -67,29 +72,60 @@ class HomePage extends Component {
                         <div className="col-md-4">
                             <SectionHeading heading="Recent Events" />
                             <marquee direction="up">
+=======
+                                <OwlCarousel className='owl-theme vertical-carousel' loop={true} margin={10} autoPlay={true} autoplayTimeout={1000} dots={false} nav>
+                                    <div className='item'><h4>News 1</h4></div>
+                                    <div className='item'><h4>News 2</h4></div>
+                                    <div className='item'><h4>News 3</h4></div>
+                                    <div className='item'><h4>News 4</h4></div>
+                                    <div className='item'><h4>News 5</h4></div>
+                                    <div className='item'><h4>News 6</h4></div>
+                                </OwlCarousel>
+                        </div>
+                        <div className="col-md-4">
+                            <SectionHeading heading="Recent Events" />
+                            {/* <marquee direction="up" scrollamount={2}> */}
+>>>>>>> Stashed changes
                                 <div className="vertical-carousel-wrapper">
                                     <div className='event-card mb-2' style={{width: '100%', height: '100px', backgroundColor: 'grey'}}>
-
+                                        <div className="date-holder">
+                                            <div className="num font-weight-700" style={{fontSize: 'xx-large'}}>8</div>Dec
+                                        </div>
                                     </div>
                                     <div className='event-card mb-2' style={{width: '100%', height: '100px', backgroundColor: 'grey'}}>
-
+                                        <div className="date-holder">
+                                            <div className="num font-weight-700" style={{fontSize: 'xx-large'}}>7</div>Dec
+                                        </div>
                                     </div>
                                     <div className='event-card mb-2' style={{width: '100%', height: '100px', backgroundColor: 'grey'}}>
-
+                                        <div className="date-holder">
+                                            <div className="num font-weight-700" style={{fontSize: 'xx-large'}}>6</div>Dec
+                                        </div>
                                     </div>
                                 </div>
-                            </marquee>
+                            {/* </marquee> */}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-md"><div className='numbers font-weight-800'>1951</div>Established</div>
-                        <div className="col-md"><div className='numbers font-weight-800'>x k+</div>Students</div>
-                        <div className="col-md"><div className='numbers font-weight-800'>y k+</div>Faculty</div>
+                        <div className="col-md"><div className='numbers font-weight-800'><CountUp end={15000} duration={2} />+</div>Students</div>
+                        <div className="col-md"><div className='numbers font-weight-800'><CountUp end={2000} duration={2} />+</div>Faculty</div>
                     </div>
                     
                 </div>
             </section>
-            <div className="" id="footer">Contact Us</div>
+            <div className="w-100">
+                <div className="container-fluid">
+                    <div className="row" id="footer">
+                        <div className="col-md-4 font-weight-800">Quick Links</div> 
+                        <div className="col-md-4 font-weight-800">Contact Us</div> 
+                        <div className="col-md-4 font-weight-800">Social Handles</div> 
+                    </div>
+                </div>
+            </div>
+            <div className="copyright" style={{textAlign: 'center', fontSize: 'medium'}}>
+                &copy; 2021, Indian Institute of Technology Kharagpur
+            </div>
         </div>
       );
     }

@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-md transparent-nav fixed-top">
+        <nav className="navbar navbar-expand-xl transparent-nav fixed-top">
           <div className="container">
             <Link to="/" className="navbar-brand font-weight-800">Indian Institute of Technology Kharagpur</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
