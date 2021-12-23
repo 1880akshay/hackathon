@@ -7,6 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import StudentProfile from './views/studentProfile';
 import OfficialLogin from './views/officialLogin';
+import OfficialProfile from './views/officialProfile';
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
           <Route exact path="/student-login" element={<LoginRoute redirectTo="/student-profile" role="student"><StudentLogin /></LoginRoute>} />
           <Route exact path="/student-profile" element={<ProtectedRoute redirectTo="/student-login" role="student"><StudentProfile /></ProtectedRoute>} />
           <Route exact path="/official-login" element={<LoginRoute redirectTo="/official-profile" role="official"><OfficialLogin /></LoginRoute>} />
+          <Route exact path="/official-profile" element={<ProtectedRoute redirectTo="/official-login" role="official"><OfficialProfile /></ProtectedRoute>} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <ToastContainer 

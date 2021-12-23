@@ -58,5 +58,5 @@ exports.isPasswordCorrect = (req, res, next) => {
                 });
             }
         }
-    })
+    });
 }

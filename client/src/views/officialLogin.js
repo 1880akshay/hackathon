@@ -58,11 +58,62 @@ class OfficialLogin extends Component {
         });
     }
 
+    handleRoleChange = (e) => {
+        this.setState({
+            role: e.target.value
+        });
+    }
+
     handleSubmit = async (e) => {
         e.preventDefault();
+        // valid email
         if(this.state.tooltipType !== 'success') {
             toast.error('Invalid institute email id');
             return;
+        }
+        // non empty password
+        if(this.state.password === '') {
+            toast.error('Password cannot be empty');
+            return;
+        }
+        // non empty role
+        if(this.state.role === '') {
+            toast.error('Please select a role');
+            return;
+        }
+
+        $('.login-submit-btn').html(`<span class="fa fa-spinner fa-pulse fa-lg"></span>`);
+        $('.login-submit-btn').prop('disabled', true);
+        try {
+            const response = await fetch(
+                '/api/auth/officialLogin',
+                {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        email: this.state.email,
+                        role: this.state.role,
+                        password: this.state.password
+                    })
+                } 
+            );
+            const data = await response.json();
+            this.setState({email: '', tooltipType: '', password: '', role: ''});
+            $('.login-submit-btn').prop('disabled', false);
+            $('.login-submit-btn').html('Login');
+            if(response.status === 200) {
+                this.setState({loggedIn: true});
+                toast.success(data.message);
+            }
+            else {
+                toast.error(data.message);
+            }
+        } catch(err) {
+            console.log(err);
+            $('.login-submit-btn').prop('disabled', false);
+            $('.login-submit-btn').html('Login');
+            this.setState({email: '', tooltipType: '', password: '', role: ''});
+            toast.error('An error occurred');
         }
         
     }
@@ -111,11 +162,11 @@ class OfficialLogin extends Component {
                                                 <span className="fa fa-eye login-suffix-icon" id="password-toggler" onClick={this.togglePasswordVisibility}></span>
                                             </div>
                                             <div style={{position: 'relative'}}>
-                                                <select className="login-input-field mb-3">
-                                                    <option disabled selected>Select Role</option>
-                                                    <option>Admin</option>
-                                                    <option>Gymkhana Official</option>
-                                                    <option>Society Governor</option>
+                                                <select className="login-input-field mb-3" value={this.state.role} onChange={this.handleRoleChange}>
+                                                    <option disabled value="">Select Role</option>
+                                                    <option value="admin">Admin</option>
+                                                    <option value="tsg_office_bearer">TSG Office Bearer</option>
+                                                    <option value="governor">Society Governor</option>
                                                 </select>
                                                 <span className="fa fa-user login-prefix-icon"></span>
                                                 <span className="fa fa-caret-down login-suffix-icon"></span>
